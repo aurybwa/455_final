@@ -1,1 +1,5 @@
-<resources></resources>
+<resources>
+  <string name="_5_seconds">_5_seconds</string>
+  <string name="_10_seconds">_10_seconds</string>
+  <string name="_30_seconds">_30_seconds</string>
+</resources>
