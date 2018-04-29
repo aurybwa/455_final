@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
   package="com.example.aury.waterreminder.feature">
+  <uses-sdk android:minSdkVersion="4" android:targetSdkVersion="26"
+    tools:ignore="GradleOverrides" />
 
   <application>
     <activity android:name=".MainActivity">
@@ -21,6 +24,7 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
+    <receiver android:name="com.example.aury.waterreminder.feature.NotificationPublisher"/>
   </application>
 
 </manifest>
