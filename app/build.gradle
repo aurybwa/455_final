@@ -27,4 +27,5 @@ android {
 dependencies {
     implementation project(':feature')
     implementation project(':base')
+    implementation "com.android.support:support-compat:26.1.0"
 }

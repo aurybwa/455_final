@@ -5,16 +5,12 @@ import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.os.SystemClock;
-
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-
-//import com.cards.finalnotifications.R;
-
 
 /*In androidManifest you need to have this line below.
  *<receiver android:name="com.example.akeat.finalnotifications.NotificationPublisher"/>
@@ -53,17 +49,19 @@ public class MainActivity extends AppCompatActivity {
   public boolean onOptionsItemSelected(MenuItem item){
     int i = item.getItemId();
     if (i == R.id.action_5) {
-      
       /*This is needed to schedule the notification!
      *This is also where we will store the delay for the notification.
      *So whatever variable is used when fifnding how often someone should be reminded to drink water
      *should go in here where 5000 is.
      *dont forget either that the time is in miliseconds, which you can change to seconds
      * I believe theres a function called TimeUnit that will convert it to seconds, or you can just multiply it by 1000 :D
+     * You also dont need the if statement here, its usually used for the menu if you had more than one option but for our case
+     * you can just use the line below and put it where you want the notification to be called.
      */
+      
       scheduleNotification(getNotification("Put the amount of time here ->, could be a variable or whatever"), 5000);
-    
       return true;
+      
     } else {
       return super.onOptionsItemSelected(item);
     }
@@ -89,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
    * */
   private Notification getNotification(String content){
     final Intent emptyIntent = new Intent(this, NotificationPublisher.class);
-    PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, emptyIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+    PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, emptyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
     NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
                                               .setSmallIcon(R.drawable.water)
                                               .setContentTitle("Drink some water")
